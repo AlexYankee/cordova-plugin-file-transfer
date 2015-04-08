@@ -377,7 +377,7 @@ namespace WPCordovaClassLib.Cordova.Commands
                 {
                     using (IsolatedStorageFile isoFile = IsolatedStorageFile.GetUserStoreForApplication())
                     {
-                        string cleanUrl = downloadOptions.Url.Replace("x-wmapp0:", "").Replace("file:", "");
+                        string cleanUrl = downloadOptions.Url.Replace("x-wmapp0:", "").Replace("file:", "").Replace("//","");
 
                         // pre-emptively create any directories in the FilePath that do not exist
                         string directoryName = getDirectoryName(downloadOptions.FilePath);
@@ -513,7 +513,7 @@ namespace WPCordovaClassLib.Cordova.Commands
             string id = optionStrings[0];
             string callbackId = optionStrings[1];
 
-            if (InProcDownloads.ContainsKey(id))
+            if (id != null && InProcDownloads.ContainsKey(id))
             {
                 DownloadRequestState state = InProcDownloads[id];
                 if (!state.isCancelled)
