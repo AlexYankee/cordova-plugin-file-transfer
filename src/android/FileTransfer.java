@@ -64,6 +64,7 @@ import org.json.JSONObject;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
+import android.webkit.CookieManager;
 import org.xwalk.core.internal.XWalkCookieManager;
 
 public class FileTransfer extends CordovaPlugin {
